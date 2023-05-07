@@ -1,24 +1,25 @@
-import { React, useEffect, useState } from "react";
+import MenuIcon from "@mui/icons-material/Menu";
 import {
   AppBar,
   Box,
-  Toolbar,
-  IconButton,
   Button,
+  IconButton,
+  Toolbar,
   Typography,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import Image from "next/image";
 import { makeStyles } from "@mui/styles";
-import { connectWallet, setUserChain, onboard } from "../utils/wallet";
+import { useAccountCenter, useConnectWallet } from "@web3-onboard/react";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { React, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Web3 from "web3";
+
+import { addWalletAddress } from "../redux/reducers/user";
+import store from "../redux/store";
+import { connectWallet, onboard, setUserChain } from "../utils/wallet";
 import AccountButton from "./accountbutton";
 
-import store from "../redux/store";
-import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from "next/router";
-import { useAccountCenter, useConnectWallet } from "@web3-onboard/react";
-import { addWalletAddress } from "../redux/reducers/user";
 // import "../../styles/globals.css";
 
 const useStyles = makeStyles({
@@ -63,15 +64,7 @@ export default function Navbar3(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Box sx={{ flexGrow: 1 }}>
-            <Image
-              src="/assets/images/monogram.png"
-              height="40"
-              width="40"
-              className={classes.image}
-              alt="monogram"
-            />
-          </Box>
+          <Box sx={{ flexGrow: 1 }}></Box>
           {props.faucet ? (
             <Button
               variant="primary"

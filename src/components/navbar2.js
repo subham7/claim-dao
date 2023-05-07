@@ -1,11 +1,10 @@
-import { React, useEffect, useState } from "react";
-import { AppBar, Box, Toolbar, IconButton, Button } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import Image from "next/image";
+import { AppBar, Box, Button, IconButton, Toolbar } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-
-import { useRouter } from "next/router";
 import { useConnectWallet } from "@web3-onboard/react";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { React, useEffect, useState } from "react";
 
 const useStyles = makeStyles({
   image: {
@@ -63,15 +62,7 @@ export default function Navbar2(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Box sx={{ flexGrow: 1 }}>
-            <Image
-              src="/assets/images/monogram.png"
-              height="40"
-              width="40"
-              className={classes.image}
-              alt="monogram"
-            />
-          </Box>
+          <Box sx={{ flexGrow: 1 }}></Box>
 
           {props.page === 1 ? (
             <div style={{ marginRight: "350px" }}>

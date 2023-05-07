@@ -1,41 +1,19 @@
-import { React, useEffect, useState } from "react";
-import Layout2 from "../src/components/layouts/layout2";
-import {
-  Grid,
-  Button,
-  Card,
-  Typography,
-  Divider,
-  Stack,
-  ListItemButton,
-  DialogContent,
-  Dialog,
-} from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { makeStyles } from "@mui/styles";
 import AddIcon from "@mui/icons-material/Add";
-import Router, { useRouter } from "next/router";
-import { fetchClubByUserAddress } from "../src/api/user";
-import {
-  addClubName,
-  addDaoAddress,
-  addClubID,
-  addClubRoute,
-} from "../src/redux/reducers/create";
-import claim from "../public/assets/images/treasury_image.png";
-import station from "../public/assets/images/gov_image.png";
-
-import {
-  getExpiryTime,
-  getJwtToken,
-  getRefreshToken,
-  setExpiryTime,
-  setJwtToken,
-  setRefreshToken,
-} from "../src/utils/auth";
-import { loginToken, refreshToken } from "../src/api/auth";
+import { Button, Card, Dialog, DialogContent, Divider, Grid, ListItemButton, Stack, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { useConnectWallet } from "@web3-onboard/react";
+import Router, { useRouter } from "next/router";
+import { React, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import station from "../public/assets/images/gov_image.png";
+import claim from "../public/assets/images/treasury_image.png";
+import { loginToken, refreshToken } from "../src/api/auth";
+import { fetchClubByUserAddress } from "../src/api/user";
 import NewCard from "../src/components/cards/card";
+import Layout2 from "../src/components/layouts/layout2";
+import { addClubID, addClubName, addClubRoute, addDaoAddress } from "../src/redux/reducers/create";
+import { getExpiryTime, getJwtToken, getRefreshToken, setExpiryTime, setJwtToken, setRefreshToken } from "../src/utils/auth";
 
 const useStyles = makeStyles({
   container: {
@@ -215,12 +193,12 @@ export default function App() {
       <div className={classes.container}>
         {!manageStation && clubFlow && (
           <div className={classes.cardContainer}>
-            <NewCard
+            {/* <NewCard
               onClick={showStationsHandler}
               imgSrc={station}
               title={"Manage Stations"}
               subtitle={"Create and manage stations with few clicks"}
-            />
+            /> */}
             <NewCard
               onClick={claimsHandler}
               imgSrc={claim}
