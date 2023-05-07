@@ -1,5 +1,15 @@
 import AddIcon from "@mui/icons-material/Add";
-import { Button, Card, Dialog, DialogContent, Divider, Grid, ListItemButton, Stack, Typography } from "@mui/material";
+import {
+  Button,
+  Card,
+  Dialog,
+  DialogContent,
+  Divider,
+  Grid,
+  ListItemButton,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useConnectWallet } from "@web3-onboard/react";
 import Router, { useRouter } from "next/router";
@@ -12,8 +22,20 @@ import { loginToken, refreshToken } from "../src/api/auth";
 import { fetchClubByUserAddress } from "../src/api/user";
 import NewCard from "../src/components/cards/card";
 import Layout2 from "../src/components/layouts/layout2";
-import { addClubID, addClubName, addClubRoute, addDaoAddress } from "../src/redux/reducers/create";
-import { getExpiryTime, getJwtToken, getRefreshToken, setExpiryTime, setJwtToken, setRefreshToken } from "../src/utils/auth";
+import {
+  addClubID,
+  addClubName,
+  addClubRoute,
+  addDaoAddress,
+} from "../src/redux/reducers/create";
+import {
+  getExpiryTime,
+  getJwtToken,
+  getRefreshToken,
+  setExpiryTime,
+  setJwtToken,
+  setRefreshToken,
+} from "../src/utils/auth";
 
 const useStyles = makeStyles({
   container: {
@@ -333,7 +355,7 @@ export default function App() {
                 </Grid>
                 <Grid item mt={4}>
                   <Typography variant="regularText">
-                    Create or join a club in less than 60 seconds using StationX
+                    Connect your wallet
                   </Typography>
                 </Grid>
               </Grid>
